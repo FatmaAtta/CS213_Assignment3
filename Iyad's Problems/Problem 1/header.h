@@ -15,6 +15,7 @@ class LabelGenerator{
 		virtual string nextLabel();
 };
 
+
 class FileLabelGenerator: public LabelGenerator{
 	private:
 		string fileName;
