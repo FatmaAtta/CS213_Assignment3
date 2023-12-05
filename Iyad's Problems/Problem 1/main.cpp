@@ -1,3 +1,10 @@
+#// File name: main.cpp
+// Purpose: Label Generator
+// Author(s): Iyad Mahdy Mahrous
+// ID(s): 20220075
+// Section: S9
+// Date: December 5 2023
+// Version: 1
 #include "header.h"
 
 int main()
