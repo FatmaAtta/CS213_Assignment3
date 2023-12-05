@@ -22,7 +22,7 @@ void token(string &word){
     lower_case(word);
 }
 class StringSet{
-    unordered_set<string>words;
+    vector<string>words;
 public:
     StringSet(string file_name);
     StringSet(string s,char c); //second parameter is to differentiate between the two constructors
@@ -32,27 +32,32 @@ public:
     void print();
     int size();
     void push(string s);
-    unordered_set<string> get_words(){
+    vector<string> get_words(){
         return words;
     }
-    StringSet operator*(StringSet s){
-        unordered_set<string>s2=s.get_words();
+    StringSet operator*(StringSet str2){
+        vector<string>s2=str2.get_words();
         StringSet common("",'q');
         for(string s : s2){
-            if(this->words.find(s)!=this->words.end()){
-                common.words.insert(s);
+            auto it=find(words.begin(),words.end(),s);
+            if(it==words.end()){
+                common.words.push_back(s);
             }
         }
         return common;
     }
-    StringSet operator+(StringSet s){
-        unordered_set<string>s2=s.get_words();
+    StringSet operator+(StringSet str){
+        vector<string>s2=str.get_words();
         StringSet merge("",'q');
-            for(string s:this->words){
-                merge.words.insert(s);
+            for(string s:words){
+                if(find(merge.words.begin(),merge.words.end(),s)==merge.words.end()){
+                    merge.words.push_back(s);
+                }
             }
             for(string s:s2){
-                merge.words.insert(s);
+                if(find(merge.words.begin(),merge.words.end(),s)==merge.words.end()){
+                    merge.words.push_back(s);
+                }
             }
         return merge;
     }
@@ -101,7 +106,7 @@ StringSet::StringSet(string file_name) {
             string word;
             while(word_stream >> word){
                 token(word);
-                words.insert(word);
+                words.push_back(word);
             }
         }
         file.close();
@@ -116,7 +121,7 @@ StringSet::StringSet(string s, char c) {
     string word;
     while(word_stream >> word){
         token(word);
-        words.insert(word);
+        words.push_back(word);
     }
 }
 void StringSet::print() {
@@ -129,12 +134,13 @@ void StringSet::push(string s) {
     string word;
     while(word_stream >> word){
         token(word);
-        words.insert(word);
+        words.push_back(word);
     }
 }
 void StringSet::pop(string s){
     token(s);
-    words.erase(s);
+    auto it=remove(words.begin(), words.end(), s);
+    words.erase(it,words.end());
 }
 void StringSet::clear() {
     words.clear();
