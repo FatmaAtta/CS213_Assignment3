@@ -1,4 +1,4 @@
-#// File name: main.cpp
+// File name: main.cpp
 // Purpose: Label Generator
 // Author(s): Iyad Mahdy Mahrous
 // ID(s): 20220075
