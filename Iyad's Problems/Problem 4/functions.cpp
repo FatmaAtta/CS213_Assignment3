@@ -2,7 +2,16 @@
 #include <algorithm>
 
 template <typename T>
-MySet<T>::MySet(){}
+MySet<T>::MySet(T arr[]){
+	int i = 0;
+
+	while (arr[i]){
+		if (find(values.begin(), values.end(), arr[i]) == values.end())
+			values.push_back(arr[i]);
+		i++;
+	}
+	sort(values.begin(), values.end());
+}
 
 template <typename T>
 void MySet<T>::add_item(T item){

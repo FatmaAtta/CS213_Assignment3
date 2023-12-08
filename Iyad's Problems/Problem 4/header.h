@@ -10,7 +10,8 @@ class MySet{
 	private:
 		vector<T> values;
 	public:
-		MySet();
+		MySet() = default;
+		MySet(T arr[]);
 		void add_item(T item);
 		void remove_item(T item);
 		size_t get_size();

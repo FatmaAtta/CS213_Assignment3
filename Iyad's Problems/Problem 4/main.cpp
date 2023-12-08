@@ -9,14 +9,14 @@
 #include "functions.cpp"
 
 int main(){
-	
-	MySet<int> m;
+	int arr[] = {5, 1, 2, 6, 1};
+	MySet<int> m(arr);
 
-	m.add_item(5);
+	/*m.add_item(5);
 	m.add_item(1);
-	m.add_item(6);
 	m.add_item(2);
-	m.add_item(1);
+	m.add_item(6);
+	m.add_item(1);*/
 
 	cout << "6 is " << (m.check_item(6) ? "" : "NOT") << " in the set." << endl;
 	cout << "3 is " << (m.check_item(3) ? "" : "NOT") << " in the set." << endl;
