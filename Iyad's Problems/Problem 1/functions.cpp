@@ -26,15 +26,11 @@ FileLabelGenerator::FileLabelGenerator(string p, int i, string fileName): LabelG
 }
 
 string FileLabelGenerator::nextLabel(){	
-	string output = "";
-	output += prefix;
-	output += to_string(index);
+	string output = LabelGenerator::nextLabel();
 
 	if (lineIndex < lines.size())
 		output += " " + lines[lineIndex];
 
 	lineIndex += 1;
-	index += 1;
-
 	return output;
 }
