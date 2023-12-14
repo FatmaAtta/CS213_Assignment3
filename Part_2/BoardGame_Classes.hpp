@@ -43,6 +43,17 @@ public:
    bool game_is_over();
 };
 
+///////////////////////////////////////
+// This class  is for pyramid X_0
+class Pyramid_X_O_Board:public Board {
+	Pyramid_X_O_Board();
+	bool update_board (int x, int y, char symbol);
+	bool is_winner();
+	void display_board();
+	bool is_draw();
+	bool game_is_over();
+};
+
 ///////
 //this class is for the connect 4 game
 class Connect_Four_Board:public Board{
