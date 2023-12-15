@@ -24,3 +24,23 @@ void Pyramid_X_O_Board::display_board() {
    }
    cout << endl;
 }
+
+bool Pyramid_X_O_Board::update_board (int x, int y, char mark){
+   return false;
+}
+
+// Returns true if there is any winner
+// either X or O
+// Written in a complex way. DO NOT DO LIKE THIS.
+bool Pyramid_X_O_Board::is_winner() {
+    return false;
+}
+
+// Return true if 9 moves are done and no winner
+bool Pyramid_X_O_Board::is_draw() {
+    return (n_moves == 9 && !is_winner());
+}
+
+bool Pyramid_X_O_Board::game_is_over () {
+    return n_moves >= 9;
+}
