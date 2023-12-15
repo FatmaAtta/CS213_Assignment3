@@ -5,5 +5,7 @@ using namespace std;
 
 int main()
 {
+	Pyramid_X_O_Board* pb = new Pyramid_X_O_Board();
 
+	pb->display_board();
 }

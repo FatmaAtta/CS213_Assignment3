@@ -46,6 +46,7 @@ public:
 ///////////////////////////////////////
 // This class  is for pyramid X_0
 class Pyramid_X_O_Board:public Board {
+public:
 	Pyramid_X_O_Board();
 	bool update_board (int x, int y, char symbol);
 	bool is_winner();
