@@ -20,6 +20,7 @@ Pyramid_X_O_Board::Pyramid_X_O_Board () {
 
 // Display the board and the pieces on it
 void Pyramid_X_O_Board::display_board() {
+	system("clear");
 	int row_count = 0, col_count;
 	for (int i: {0,1,2}) {
 		cout << "\n";
@@ -207,7 +208,6 @@ bool Pyramid_X_O_Board::is_winner() {
 		for (int j: {0,1,2,3,4}) {
 			if (board[i][j] == '0' || board[i][j] == '?')
 		        	continue;
-			cout << "Row: " << i << "\nCol: " << j << endl;
 			if (check_horizontal(i, j, 3) || check_vertical(i, j, 3) || check_rdiag(i, j, 3) || check_ldiag(i, j, 3))
 				return true;
 		}

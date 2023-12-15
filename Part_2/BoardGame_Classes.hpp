@@ -99,10 +99,11 @@ class Player {
 // If invalid, game manager asks to regenerate
 class RandomPlayer: public Player {
     protected:
-        int dimension;
+        int dimension_x;
+	int dimension_y;
     public:
         // Take a symbol and pass it to parent
-        RandomPlayer (char symbol, int dimension);
+        RandomPlayer (char symbol, int dimension_x, int dimension_y);
         // Generate a random move
         void get_move(int& x, int& y);
 };
