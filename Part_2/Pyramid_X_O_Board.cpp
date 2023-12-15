@@ -72,95 +72,128 @@ bool Pyramid_X_O_Board::update_board (int x, int y, char mark){
 // Checks if mark occured count times in a row from position x, y horizontally
 bool Pyramid_X_O_Board::check_horizontal(int x, int y, int count) {
 	int actual_count = 0;
-	char mark = board[x][2-x + y];
+	char mark = board[x][y];
 	int tmp = y;
-	while (is_valid(x, tmp) && board[x][2-x + tmp] == mark)
+	while (board[x][tmp] == mark)
 	{
 		actual_count++;
 		tmp++;
 		if (actual_count == count)
 			return true;
+		if (tmp >= n_cols)
+			break;
+		
 	}
+	if (y == 0)
+		return false;
 	tmp = y-1;
-	while (is_valid(x, tmp) && board[x][2-x + tmp] == mark)
+	while (board[x][tmp] == mark)
 	{
 		actual_count++;
 		tmp--;
 		if (actual_count == count)
 			return true;
+		if (tmp < 0)
+			break;
+		
 	}
 	return false;
 }
 
 // Checks if mark occured count times in a row from position x, y vertically
 bool Pyramid_X_O_Board::check_vertical(int x, int y, int count) {
-	char mark = board[x][2-x + y];
+	char mark = board[x][y];
 	int actual_count = 0;
 	int tmp = x;
-	while (is_valid(tmp, y) && board[tmp][2-x + y] == mark)
+	while (board[tmp][y] == mark)
 	{
 		actual_count++;
 		tmp++;
 		if (actual_count == count)
 			return true;
+		if (tmp >= n_rows)
+			break;
+		
 	}
+	if (x == 0)
+		return false;
 	tmp = x-1;
-	while (is_valid(tmp, y) && board[tmp][2-x + y] == mark)
+	while (board[tmp][y] == mark)
 	{
 		actual_count++;
 		tmp--;
 		if (actual_count == count)
 			return true;
+		if (tmp < 0)
+			break;
+		
 	}
 	return false;
 }
 
 // Checks if mark occured count times in a row from position x, y right-diagonally
 bool Pyramid_X_O_Board::check_rdiag(int x, int y, int count) {
-	char mark = board[x][2-x + y];
+	char mark = board[x][y];
 	int actual_count = 0;
-	int tmp = x;
-	while (is_valid(tmp, y) && board[tmp][2-tmp + y] == mark)
+	int tmp_x = x;
+	int tmp_y = y;
+	while (board[tmp_x][tmp_y] == mark)
 	{
 		actual_count++;
-		tmp++;
+		tmp_x--;
+		tmp_y++;
 		if (actual_count == count)
 			return true;
+		if (tmp_x < 0 || tmp_y >= n_cols)
+			break;
 	}
-	tmp = x-1;
-	while (is_valid(tmp, y) && board[tmp][2-tmp + y] == mark)
+	if (x == n_rows - 1|| y == 0)
+		return false;
+	tmp_x = x+1;
+	tmp_y = y-1;
+	while (board[tmp_x][tmp_y] == mark)
 	{
 		actual_count++;
-		tmp--;
+		tmp_x++;
+		tmp_y--;
 		if (actual_count == count)
 			return true;
+		if (tmp_x >= n_rows || tmp_y < 0)
+			break;
 	}
 	return false;
 }
 
 // Checks if mark occured count times in a row from position x, y left-diagonally
 bool Pyramid_X_O_Board::check_ldiag(int x, int y, int count) {
-	char mark = board[x][2-x + y];
+	char mark = board[x][y];
 	int actual_count = 0;
 	int tmp_x = x;
 	int tmp_y = y;
-	while (is_valid(tmp_x, tmp_y) && board[tmp_x][2-tmp_x + tmp_y] == mark)
+	while (board[tmp_x][tmp_y] == mark)
 	{
 		actual_count++;
 		tmp_x++;
-		tmp_y += 2;
+		tmp_y++;
 		if (actual_count == count)
 			return true;
+		if (tmp_x >= n_rows || tmp_y >= n_cols)
+			break;
+		
 	}
+	if (x == 0 || y == 0)
+		return false;
 	tmp_x = x-1;
-	tmp_y = y-2;
-	while (is_valid(tmp_x, tmp_y) && board[tmp_x][2-tmp_x + tmp_y] == mark)
+	tmp_y = y-1;
+	while (board[tmp_x][tmp_y] == mark)
 	{
 		actual_count++;
 		tmp_x--;
-		tmp_y -= 2;
+		tmp_y--;
 		if (actual_count == count)
 			return true;
+		if (tmp_x < 0 || tmp_y < 0)
+			break;
 	}
 	return false;
 }
@@ -170,22 +203,15 @@ bool Pyramid_X_O_Board::check_ldiag(int x, int y, int count) {
 // either X or O
 // Written in a complex way. DO NOT DO LIKE THIS.
 bool Pyramid_X_O_Board::is_winner() {
-	/*
-	int row_count = 0, col_count;
 	for (int i: {0,1,2}) {
-		col_count = 0;
 		for (int j: {0,1,2,3,4}) {
-
 			if (board[i][j] == '0' || board[i][j] == '?')
 		        	continue;
-			cout << "Row: " << row_count << "\nCol: " << col_count << endl;
-			if (check_horizontal(row_count, col_count, 3) || check_vertical(row_count, col_count, 3) || check_rdiag(row_count, col_count, 3) || check_ldiag(row_count, col_count, 3))
+			cout << "Row: " << i << "\nCol: " << j << endl;
+			if (check_horizontal(i, j, 3) || check_vertical(i, j, 3) || check_rdiag(i, j, 3) || check_ldiag(i, j, 3))
 				return true;
-			col_count++;
 		}
-		row_count++;
 	}
-	*/
 	return false;
 }
 
