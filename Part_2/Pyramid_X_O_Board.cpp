@@ -56,13 +56,14 @@ bool Pyramid_X_O_Board::is_valid(int x, int y) {
 // To update position x, y on the board to mark
 bool Pyramid_X_O_Board::update_board (int x, int y, char mark){
 	// Return false if position is out of bounds of shown choices
-	if (!is_valid(x, y)) {
+	if (!is_valid(x, y) || board[x][2-x + y] != '?') {
 		cout << "Invalid Position!\n";
 		return false;
 	}
 	// Row will always be x but column will have to scale with the shown array by using (2)
 	// which is the maximum row number and subtracting the x from it then adding the shown
 	// column number to get the actual index in the board array
+
 	board[x][2-x + y] = mark;
 	n_moves++;
 	return true;
