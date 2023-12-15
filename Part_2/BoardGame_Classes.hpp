@@ -53,6 +53,15 @@ public:
 	void display_board();
 	bool is_draw();
 	bool game_is_over();
+	
+	// Functions that checks if (mark) appeared (count) in a row times
+	// at the position (x, y)
+	bool check_vertical(int x, int y, int count);
+	bool check_horizontal(int x, int y, int count);
+	bool check_rdiag(int x, int y, int count);
+	bool check_ldiag(int x, int y, int count);
+
+	bool is_valid(int x, int y);
 };
 
 ///////

@@ -2,9 +2,7 @@
 // Author:  Mohammad El-Ramly
 // Date:    10/10/2022
 // Version: 1
-#include <bits/stdc++.h>
 #include"BoardGame_Classes.hpp"
-using namespace std;
 
 // Give player a symbol to use in playing
 // It can be X or O or others
@@ -26,7 +24,7 @@ Player::Player (int order, char symbol) {
 // Get desired move: x y (each between 0 and 2)
 // Virtual (can change for other player types)
 void Player::get_move (int& x, int& y) {
-    cout << "\nPlease enter your move x and y (0 to 2) separated by spaces: ";
+    cout << "\nPlease enter your move x and y separated by spaces: ";
     cin >> x >> y;
 }
 

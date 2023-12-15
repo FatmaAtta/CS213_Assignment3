@@ -2,10 +2,7 @@
 // Author:  Mohammad El-Ramly
 // Date:    10/10/2022
 // Version: 1
-
-#include <bits/stdc++.h>
 #include"BoardGame_Classes.hpp"
-using namespace std;
 
 GameManager::GameManager(Board* bPtr, Player* playerPtr[2] ) {
     boardPtr = bPtr;
