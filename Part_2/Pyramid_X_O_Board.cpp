@@ -10,10 +10,12 @@ Pyramid_X_O_Board::Pyramid_X_O_Board () {
    for (int i = 0; i < n_rows; i++) {
       board [i] = new char[n_cols];
       for (int j = 0; j < n_cols; j++) {
-		if (j >= n_cols/2 - i && j <= n_cols/2 + i)
-			board[i][j] = '?';
-		else
-			board[i][j] = '0';
+		if (j >= n_cols/2 - i && j <= n_cols/2 + i){
+            board[i][j] = '?';
+        }
+		else{
+            board[i][j] = '0';
+        }
 	}
    }
 }
@@ -26,8 +28,9 @@ void Pyramid_X_O_Board::display_board() {
 		cout << "\n";
 		col_count = 0;
 		for (int j: {0,1,2,3,4}) {
-			if (board[i][j] == '0')
-				cout << '\t';
+			if (board[i][j] == '0'){
+                cout << '\t';
+            }
 			else
 			{
 				if (board[i][j] == '?')
@@ -40,15 +43,17 @@ void Pyramid_X_O_Board::display_board() {
 			}
 	        }
 		row_count++;
-		if (i == 2)
-			cout << '|' << endl;
+		if (i == 2){
+            cout << '|' << endl;
+        }
 	}
 }
 
 // Checks validity of the coordinate x,y in the board
 bool Pyramid_X_O_Board::is_valid(int x, int y) {
-	if (x < 0 || x > 2|| y < 0 || y > 2 * x)
-		return false;
+	if (x < 0 || x > 2|| y < 0 || y > 2 * x){
+        return false;
+    }
 	return true;
 }
 
@@ -73,15 +78,16 @@ bool Pyramid_X_O_Board::check_horizontal(int x, int y, int count) {
 	int actual_count = 0;
 	char mark = board[x][y];
 	int tmp = y;
-	while (board[x][tmp] == mark)
-	{
+	while (board[x][tmp] == mark){
 		actual_count++;
 		tmp++;
-		if (actual_count == count)
-			return true;
-		if (tmp >= n_cols)
-			break;
-		
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp >= n_cols){
+            break;
+        }
+
 	}
 	if (y == 0)
 		return false;
@@ -90,11 +96,13 @@ bool Pyramid_X_O_Board::check_horizontal(int x, int y, int count) {
 	{
 		actual_count++;
 		tmp--;
-		if (actual_count == count)
-			return true;
-		if (tmp < 0)
-			break;
-		
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp < 0){
+            break;
+        }
+
 	}
 	return false;
 }
@@ -104,28 +112,31 @@ bool Pyramid_X_O_Board::check_vertical(int x, int y, int count) {
 	char mark = board[x][y];
 	int actual_count = 0;
 	int tmp = x;
-	while (board[tmp][y] == mark)
-	{
+	while (board[tmp][y] == mark){
 		actual_count++;
 		tmp++;
-		if (actual_count == count)
-			return true;
-		if (tmp >= n_rows)
-			break;
-		
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp >= n_rows){
+            break;
+        }
+
 	}
-	if (x == 0)
-		return false;
+	if (x == 0){
+        return false;
+    }
 	tmp = x-1;
-	while (board[tmp][y] == mark)
-	{
+	while (board[tmp][y] == mark){
 		actual_count++;
 		tmp--;
-		if (actual_count == count)
-			return true;
-		if (tmp < 0)
-			break;
-		
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp < 0){
+            break;
+        }
+
 	}
 	return false;
 }
@@ -145,29 +156,32 @@ bool Pyramid_X_O_Board::check_rdiag(int x, int y, int count) {
 	int actual_count = 0;
 	int tmp_x = x;
 	int tmp_y = y;
-	while (board[tmp_x][tmp_y] == mark)
-	{
+	while (board[tmp_x][tmp_y] == mark){
 		actual_count++;
 		tmp_x--;
 		tmp_y++;
-		if (actual_count == count)
-			return true;
-		if (tmp_x < 0 || tmp_y >= n_cols)
-			break;
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp_x < 0 || tmp_y >= n_cols){
+            break;
+        }
 	}
-	if (x == n_rows - 1|| y == 0)
-		return false;
+	if (x == n_rows - 1|| y == 0){
+        return false;
+    }
 	tmp_x = x+1;
 	tmp_y = y-1;
-	while (board[tmp_x][tmp_y] == mark)
-	{
+	while (board[tmp_x][tmp_y] == mark){
 		actual_count++;
 		tmp_x++;
 		tmp_y--;
-		if (actual_count == count)
-			return true;
-		if (tmp_x >= n_rows || tmp_y < 0)
-			break;
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp_x >= n_rows || tmp_y < 0){
+            break;
+        }
 	}
 	return false;
 }
@@ -178,34 +192,36 @@ bool Pyramid_X_O_Board::check_ldiag(int x, int y, int count) {
 	int actual_count = 0;
 	int tmp_x = x;
 	int tmp_y = y;
-	while (board[tmp_x][tmp_y] == mark)
-	{
+	while (board[tmp_x][tmp_y] == mark){
 		actual_count++;
 		tmp_x++;
 		tmp_y++;
-		if (actual_count == count)
-			return true;
-		if (tmp_x >= n_rows || tmp_y >= n_cols)
-			break;
+		if (actual_count == count){
+            return true;
+        }
+		if (tmp_x >= n_rows || tmp_y >= n_cols){
+            break;
+        }
 
 	}
-	if (x == 0 || y == 0)
-		return false;
+	if (x == 0 || y == 0){
+        return false;
+    }
 	tmp_x = x-1;
 	tmp_y = y-1;
-	while (board[tmp_x][tmp_y] == mark)
-	{
+	while (board[tmp_x][tmp_y] == mark){
 		actual_count++;
 		tmp_x--;
 		tmp_y--;
-		if (actual_count == count)
-			return true;
-		if (tmp_x < 0 || tmp_y < 0)
-			break;
+		if (actual_count == count) {
+            return true;
+        }
+		if (tmp_x < 0 || tmp_y < 0){
+            break;
+        }
 	}
 	return false;
 }
-
 
 // Returns true if there is any winner
 // either X or O
@@ -221,7 +237,6 @@ bool Pyramid_X_O_Board::is_winner() {
 	}
 	return false;
 }
-
 
 // Return true if 9 moves are done and no winner
 bool Pyramid_X_O_Board::is_draw() {

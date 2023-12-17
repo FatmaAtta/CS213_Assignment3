@@ -55,14 +55,12 @@ public:
 	void display_board();
 	bool is_draw();
 	bool game_is_over();
-	
 	// Functions that checks if (mark) appeared (count) in a row times
 	// at the position (x, y)
 	bool check_vertical(int x, int y, int count);
 	bool check_horizontal(int x, int y, int count);
 	bool check_rdiag(int x, int y, int count);
 	bool check_ldiag(int x, int y, int count);
-
 	bool is_valid(int x, int y);
 };
 
@@ -89,12 +87,12 @@ class FiveByFive_X_O_Board:public Board {
 public:
     string name;
     char symbol;
-   FiveByFive_X_O_Board ();
-   bool update_board (int x, int y, char mark);
-   void display_board();
-   bool is_winner();
-   bool is_draw();
-   bool game_is_over();
+    FiveByFive_X_O_Board ();
+    bool update_board (int x, int y, char mark);
+    void display_board();
+    bool is_winner();
+    bool is_draw();
+    bool game_is_over();
     bool check_hor();
     bool check_ver();
     bool check_pos_diag();
@@ -130,33 +128,33 @@ class Player {
 // that generates random positions x y (0 to 2)
 // If invalid, game manager asks to regenerate
 class RandomPlayer: public Player {
-    protected:
-        int dimension_x;
-	int dimension_y;
-    public:
-        // Take a symbol and pass it to parent
-        RandomPlayer (char symbol, int dimension_x, int dimension_y);
-        // Generate a random move
-        void get_move(int& x, int& y);
+protected:
+    int dimension_x;
+    int dimension_y;
+public:
+    // Take a symbol and pass it to parent
+    RandomPlayer (char symbol, int dimension_x, int dimension_y);
+    // Generate a random move
+    void get_move(int& x, int& y);
 //        void get_pyramid_move(int& x,int& y);
 };
 
 ///////////////////////////////////////////
 class GameManager {
-    private:
-        Board* boardPtr;
-        Player* players[2];
-    public:
-        GameManager(Board*, Player* playerPtr[2]);
-        void run();
-        // This method creates board and players
-        // It displays board
-        // While True
-        //   For each player
-        //      It takes a valid move as x, y pair (between 0 - 2)
-        //      It updates board and displays otit
-        //      If winner, declare so and end
-        //      If draw, declare so and end
+private:
+    Board* boardPtr;
+    Player* players[2];
+public:
+    GameManager(Board*, Player* playerPtr[2]);
+    void run();
+    // This method creates board and players
+    // It displays board
+    // While True
+    //   For each player
+    //      It takes a valid move as x, y pair (between 0 - 2)
+    //      It updates board and displays otit
+    //      If winner, declare so and end
+    //      If draw, declare so and end
 
 };
 

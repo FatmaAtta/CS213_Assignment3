@@ -10,7 +10,6 @@ int main()
 	bool chosen = false;
 	char computer;
 	cout << "Welcome!" << endl;
-
 	cout << "1- X O\n" << "2- Pyramid X O\n" << "3- Connect Four\n" << "4- Five By Five X O\n";
 	cout << "Choose a game to play (1, 2, 3, 4): ";
 
@@ -44,18 +43,17 @@ int main()
 	Player* players[2];
 
 	players[0] = new Player(1, 'X');
-
 	cout << "Play against a computer? (y/n): ";
 	cin >> computer;
 
-    if (computer == 'y')
+    if (computer == 'y'){
         players[1] = new RandomPlayer('O', b->get_rows(), b->get_cols());
-    else
+    }
+    else{
         players[1] = new Player(2, 'O');
-
+    }
 
 	GameManager* game = new GameManager(b, players);
-
 	game->run();
 }
 
