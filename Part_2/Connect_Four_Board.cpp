@@ -104,7 +104,7 @@ bool Connect_Four_Board::check_neg_diag(){
 //    char symbol;
     for(int i=0;i<n_rows-3;i++){
         for(int j=0;j<n_cols-3;j++){
-            if(board[i][j]!=' '&&board[i][j]==board[i+1][j+1]&&board[i+2][j+2]==board[i+2][j+2]&&board[i+3][j+3]==board[i+3][j+3]){
+            if(board[i][j]!=' '&&board[i][j]==board[i+1][j+1]&&board[i][j]==board[i+2][j+2]&&board[i+3][j+3]==board[i+3][j+3]){
 //                cout<<"YAY!\n";
                 symbol=board[i][j];
                 cout<<symbol<<"\n";
@@ -129,9 +129,10 @@ bool Connect_Four_Board::game_is_over() {
 }
 
 void Connect_Four_Board::display_board() {
-    system("clear");
     cout<<"\n\n";
     cout<<"    ";
+//    cout<<"\n\n";
+//    system("cls");
     for(int i=0;i<n_cols;i++){
         cout<<setw(5)<<" "<<setw(5)<<i+1<<setw(5)<<" ";
     }

@@ -20,7 +20,7 @@ Pyramid_X_O_Board::Pyramid_X_O_Board () {
 
 // Display the board and the pieces on it
 void Pyramid_X_O_Board::display_board() {
-	system("clear");
+//	system("cls");
 	int row_count = 0, col_count;
 	for (int i: {0,1,2}) {
 		cout << "\n";
@@ -132,6 +132,15 @@ bool Pyramid_X_O_Board::check_vertical(int x, int y, int count) {
 
 // Checks if mark occured count times in a row from position x, y right-diagonally
 bool Pyramid_X_O_Board::check_rdiag(int x, int y, int count) {
+//    if(board[0][2]!='?'&&board[0][2]==board[1][1]&&board[0][2]==board[2][0]){
+//        return true;
+//    }
+//    else if(board[0][2]!='?'&&board[0][2]==board[1][3]&&board[0][2]==board[2][4]){
+//        return true;
+//    }
+//    else{
+//        return false;
+//    }
 	char mark = board[x][y];
 	int actual_count = 0;
 	int tmp_x = x;
@@ -178,7 +187,7 @@ bool Pyramid_X_O_Board::check_ldiag(int x, int y, int count) {
 			return true;
 		if (tmp_x >= n_rows || tmp_y >= n_cols)
 			break;
-		
+
 	}
 	if (x == 0 || y == 0)
 		return false;

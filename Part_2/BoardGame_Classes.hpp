@@ -87,12 +87,18 @@ public:
 
 class FiveByFive_X_O_Board:public Board {
 public:
+    string name;
+    char symbol;
    FiveByFive_X_O_Board ();
    bool update_board (int x, int y, char mark);
    void display_board();
    bool is_winner();
    bool is_draw();
    bool game_is_over();
+    bool check_hor();
+    bool check_ver();
+    bool check_pos_diag();
+    bool check_neg_diag();
 };
 
 ///////////////////////////////////////////
@@ -132,6 +138,7 @@ class RandomPlayer: public Player {
         RandomPlayer (char symbol, int dimension_x, int dimension_y);
         // Generate a random move
         void get_move(int& x, int& y);
+//        void get_pyramid_move(int& x,int& y);
 };
 
 ///////////////////////////////////////////

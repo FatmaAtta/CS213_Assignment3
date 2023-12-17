@@ -48,12 +48,14 @@ int main()
 	cout << "Play against a computer? (y/n): ";
 	cin >> computer;
 
-	if (computer == 'y')
-		players[1] = new RandomPlayer('O', b->get_rows(), b->get_cols());
-	else
-		players[1] = new Player(2, 'O');
+    if (computer == 'y')
+        players[1] = new RandomPlayer('O', b->get_rows(), b->get_cols());
+    else
+        players[1] = new Player(2, 'O');
+
 
 	GameManager* game = new GameManager(b, players);
 
 	game->run();
 }
+
