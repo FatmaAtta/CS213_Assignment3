@@ -64,11 +64,35 @@ public:
 	bool is_valid(int x, int y);
 };
 
-///////
-//this class is for the connect 4 game
 class Connect_Four_Board:public Board{
-
+public:
+    char symbol;
+    //array that stores the current column number to check from...
+    int col_num;
+    //array that stores the number of filled rows in a column
+    int col[7]={0};
+    Connect_Four_Board ();
+    bool update_board (int x, int y, char mark);
+    void display_board();
+    bool is_winner();
+    bool is_draw();
+    bool game_is_over();
+    bool check_hor();
+    bool check_ver();
+    bool check_pos_diag();
+    bool check_neg_diag();
 };
+
+class FiveByFive_X_O_Board:public Board {
+public:
+   FiveByFive_X_O_Board ();
+   bool update_board (int x, int y, char mark);
+   void display_board();
+   bool is_winner();
+   bool is_draw();
+   bool game_is_over();
+};
+
 ///////////////////////////////////////////
 // This class represents a player who has
 // a name and a symbol to put on board
