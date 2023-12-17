@@ -91,7 +91,7 @@ bool Connect_Four_Board::check_pos_diag(){
             if(board[i][j]!=' '&&board[i][j]==board[i-1][j+1]&&board[i][j]==board[i-2][j+2]&&board[i][j]==board[i-3][j+3]){
 //                cout<<"YAY!\n";
                 symbol=board[i][j];
-                cout<<symbol<<"\n";
+//                cout<<symbol<<"\n";
                 return true;
             }
         }
@@ -104,10 +104,10 @@ bool Connect_Four_Board::check_neg_diag(){
 //    char symbol;
     for(int i=0;i<n_rows-3;i++){
         for(int j=0;j<n_cols-3;j++){
-            if(board[i][j]!=' '&&board[i][j]==board[i+1][j+1]&&board[i][j]==board[i+2][j+2]&&board[i+3][j+3]==board[i+3][j+3]){
+            if(board[i][j]!=' '&&board[i][j]==board[i+1][j+1]&&board[i][j]==board[i+2][j+2]&&board[i][j]==board[i+3][j+3]){
 //                cout<<"YAY!\n";
                 symbol=board[i][j];
-                cout<<symbol<<"\n";
+//                cout<<symbol<<"\n";
                 return true;
             }
         }

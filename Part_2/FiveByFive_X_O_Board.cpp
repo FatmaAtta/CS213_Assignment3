@@ -130,7 +130,7 @@ bool FiveByFive_X_O_Board::check_pos_diag() {
             if(board[i][j]!=' '&&board[i][j]==board[i-1][j+1]&&board[i][j]==board[i-2][j+2]){
 //                cout<<"YAY!\n";
                 symbol=board[i][j];
-                cout<<symbol<<"\n";
+//                cout<<symbol<<"\n";
                 return true;
             }
         }
@@ -144,7 +144,7 @@ bool FiveByFive_X_O_Board::check_neg_diag() {
             if(board[i][j]!=' '&&board[i][j]==board[i+1][j+1]&&board[i][j]==board[i+2][j+2]){
 //                cout<<"YAY!\n";
                 symbol=board[i][j];
-                cout<<symbol<<"\n";
+//                cout<<symbol<<"\n";
                 return true;
             }
         }
