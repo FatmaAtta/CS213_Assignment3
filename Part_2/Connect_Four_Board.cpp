@@ -129,6 +129,7 @@ bool Connect_Four_Board::game_is_over() {
 }
 
 void Connect_Four_Board::display_board() {
+    system("clear");
     cout<<"\n\n";
     cout<<"    ";
     for(int i=0;i<n_cols;i++){

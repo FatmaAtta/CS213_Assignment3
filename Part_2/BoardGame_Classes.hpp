@@ -28,6 +28,8 @@ public:
    virtual void display_board() = 0;
    // Return true if game is over
    virtual bool game_is_over() = 0;
+   int get_rows();
+   int get_cols();
 };
 
 ///////////////////////////////////////////

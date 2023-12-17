@@ -23,6 +23,7 @@ FiveByFive_X_O_Board::FiveByFive_X_O_Board(){
     }
 
     void FiveByFive_X_O_Board:: display_board() {
+        system("clear");
         for (int i = 0; i < n_rows; i++) {
             cout << "\n";
             for (int j = 0; j < n_cols; j++) {
@@ -78,9 +79,6 @@ FiveByFive_X_O_Board::FiveByFive_X_O_Board(){
                 if (diagO2 == 3) countO++;
             }
         }
-
-        cout << "X's three-in-a-row sequences: " << countX << endl;
-        cout << "O's three-in-a-row sequences: " << countO << endl;
 
         return countX > countO;
     }
