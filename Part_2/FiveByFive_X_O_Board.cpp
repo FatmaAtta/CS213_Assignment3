@@ -22,18 +22,23 @@ FiveByFive_X_O_Board::FiveByFive_X_O_Board(){
         }
     }
 
-    void FiveByFive_X_O_Board:: display_board() {
-        system("clear");
-        for (int i = 0; i < n_rows; i++) {
-            cout << "\n";
-            for (int j = 0; j < n_cols; j++) {
-                cout << "| " << setw(2) << board[i][j] << " ";
-            }
-            cout << "|";
-            cout << "\n-----------------------------";
-        }
-        cout << endl;
+void FiveByFive_X_O_Board::display_board() {
+    system("clear");
+    cout << "   ";
+    for (int i = 0; i < n_cols; i++) {
+        cout << setw(3) << i << "   ";
     }
+    cout << "\n";
+    for (int i = 0; i < n_rows; i++) {
+        cout << setw(2) << i << " ";
+        for (int j = 0; j < n_cols; j++) {
+            cout << "|  " << board[i][j] << "  ";
+        }
+        cout << "|";
+        cout << "\n";
+        }
+   cout << endl;
+}
 
     bool FiveByFive_X_O_Board:: is_winner() {
         int countX = 0, countO = 0;
