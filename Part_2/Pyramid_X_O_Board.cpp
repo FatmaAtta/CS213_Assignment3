@@ -41,10 +41,8 @@ void Pyramid_X_O_Board::display_board() {
 	        }
 		row_count++;
 		if (i == 2)
-			cout << '|';
-	        cout << "\n-----------------------------------------";
+			cout << '|' << endl;
 	}
-	cout << endl;
 }
 
 // Checks validity of the coordinate x,y in the board
