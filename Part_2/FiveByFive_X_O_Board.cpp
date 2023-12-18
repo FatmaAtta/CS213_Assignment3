@@ -1,3 +1,11 @@
+// File name: FiveByFive_X_O_Board.cpp
+// Purpose: Five by five x o game implementation
+// Author(s): Muntasir Gaafar
+// ID(s): 20220834
+// Section: S9
+// Date: Dec 18
+// Version: 1.0
+
 #include "BoardGame_Classes.hpp"
 using namespace std;
 

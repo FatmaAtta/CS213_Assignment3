@@ -1,3 +1,11 @@
+// File name: Pyramid_X_O_Board.cpp
+// Purpose: Pyramid X O game implementation
+// Author(s): Iyad Mahdy
+// ID(s): 20220075
+// Section: S9
+// Date: Dec 18
+// Version: 1.0
+
 #include <bits/stdc++.h>
 #include "BoardGame_Classes.hpp"
 using namespace std;

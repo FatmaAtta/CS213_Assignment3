@@ -1,3 +1,11 @@
+// File name: Connect_Four_Board.cpp
+// Purpose: Connect Four game implementation
+// Author(s): Fatma Mahmoud
+// ID(s): 20220510
+// Section: S9
+// Date: Dec 18
+// Version: 1.0
+
 #include <bits/stdc++.h>
 #include "BoardGame_Classes.hpp"
 using namespace std;
